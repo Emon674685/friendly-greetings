@@ -30,7 +30,7 @@ export const FrameTemplate1: React.FC<FrameTemplateProps> = ({
     </div>
     
     {/* Header and photo row */}
-    <div className="flex items-start justify-between px-4 md:px-6 mt-1 md:mt-2">
+    <div className="flex items-start justify-between px-4 md:px-6 mt-4 md:mt-6">
       <div className="flex-shrink-0">
         <div className="font-heading text-primary text-sm md:text-xl">HAPPY</div>
         <div className="font-heading text-foreground text-lg md:text-3xl font-bold leading-tight">NEW YEAR</div>
