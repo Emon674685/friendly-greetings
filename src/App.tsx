@@ -8,12 +8,22 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const getRouterBasename = () => {
+  if (typeof window === "undefined") return "/";
+  // GitHub Pages serves projects from /<repo>/
+  if (window.location.hostname.endsWith("github.io")) {
+    const [repo] = window.location.pathname.split("/").filter(Boolean);
+    return repo ? `/${repo}` : "/";
+  }
+  return "/";
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={getRouterBasename()}>
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
