@@ -1,11 +1,45 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import FrameEditor from '@/components/FrameEditor';
+import kpiLogo from '@/assets/kpi-logo.jpg';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background py-8 px-4">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-10">
+          <div className="flex justify-center mb-4">
+            <div className="w-20 h-20 rounded-full border-4 border-primary/30 overflow-hidden bg-card shadow-card p-1">
+              <img src={kpiLogo} alt="KPI Logo" className="w-full h-full object-contain" />
+            </div>
+          </div>
+          
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-1">
+            Kishoreganj Polytechnic Institute
+          </h1>
+          <p className="text-primary font-body text-sm mb-6">Excellence in Technical Education</p>
+          
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="text-2xl">🎉</span>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary">
+              Happy New Year 2026
+            </h2>
+            <span className="text-gold animate-sparkle">✨</span>
+          </div>
+          <p className="text-muted-foreground font-body max-w-md mx-auto">
+            Create your personalized New Year greeting card and share with friends & family
+          </p>
+        </header>
+
+        {/* Main Editor */}
+        <FrameEditor />
+        
+        {/* Footer */}
+        <footer className="text-center mt-12 pb-6">
+          <p className="text-muted-foreground text-sm font-body">
+            © 2026 Kishoreganj Polytechnic Institute • kpi.edu.bd
+          </p>
+        </footer>
       </div>
     </div>
   );
