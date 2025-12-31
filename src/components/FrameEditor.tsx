@@ -30,20 +30,33 @@ const FrameEditor: React.FC = () => {
   };
 
   const handleDownload = async () => {
-    if (frameRef.current) {
-      try {
-        const canvas = await html2canvas(frameRef.current, {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: null,
-        });
-        const link = document.createElement('a');
-        link.download = `new-year-2026-${name || 'greeting'}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      } catch (error) {
-        console.error('Error generating image:', error);
+    const node = frameRef.current;
+    if (!node) return;
+
+    try {
+      // Make sure Google fonts are loaded so the download matches the preview.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const fonts = (document as any).fonts;
+      if (fonts?.ready) {
+        await fonts.ready;
       }
+
+      const bg = getComputedStyle(node).backgroundColor;
+      const canvas = await html2canvas(node, {
+        scale: 2,
+        useCORS: true,
+        // Use the same background behind semi-transparent layers as the preview card.
+        backgroundColor: bg === "rgba(0, 0, 0, 0)" ? null : bg,
+        // Improves fidelity for gradients/clip-text in many browsers.
+        foreignObjectRendering: true,
+      });
+
+      const link = document.createElement('a');
+      link.download = `new-year-2026-${name || 'greeting'}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (error) {
+      console.error('Error generating image:', error);
     }
   };
 
@@ -54,7 +67,7 @@ const FrameEditor: React.FC = () => {
     <div className="grid lg:grid-cols-2 gap-8 items-start">
       {/* Preview */}
       <div className="bg-card rounded-2xl p-6 shadow-card">
-        <div ref={frameRef} className="max-w-sm mx-auto">
+        <div ref={frameRef} className="max-w-sm mx-auto bg-card">
           <SelectedFrameComponent
             uploadedPhoto={uploadedPhoto}
             wishingText={wishingText}
