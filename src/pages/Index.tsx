@@ -19,12 +19,17 @@ const Index = () => {
           </h1>
           <p className="text-primary font-body text-sm mb-6">Excellence in Technical Education</p>
           
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-2xl">🎉</span>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="text-3xl md:text-4xl animate-bounce">🎉</span>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary via-gold to-primary bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite] bg-clip-text text-transparent drop-shadow-lg">
               Happy New Year 2026
             </h2>
-            <span className="text-gold animate-sparkle">✨</span>
+            <span className="text-3xl md:text-4xl animate-bounce" style={{ animationDelay: '0.5s' }}>🎊</span>
+          </div>
+          <div className="flex justify-center gap-2 mb-2">
+            <span className="text-gold text-2xl animate-sparkle">✨</span>
+            <span className="text-gold text-2xl animate-sparkle" style={{ animationDelay: '0.3s' }}>⭐</span>
+            <span className="text-gold text-2xl animate-sparkle" style={{ animationDelay: '0.6s' }}>✨</span>
           </div>
           <p className="text-muted-foreground font-body max-w-md mx-auto">
             Create your personalized New Year greeting card and share with friends & family
