@@ -75,6 +75,10 @@ export default {
         button: "var(--shadow-button)",
       },
       keyframes: {
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" }
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -97,6 +101,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "sparkle": "sparkle 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
       },
     },
   },
