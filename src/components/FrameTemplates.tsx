@@ -38,7 +38,7 @@ export const FrameTemplate1: React.FC<FrameTemplateProps> = ({
       </div>
       
       {/* Photo circle */}
-      <div className="relative w-20 md:w-32 h-20 md:h-32 flex-shrink-0 ml-2">
+      <div className="relative w-24 md:w-36 h-24 md:h-36 flex-shrink-0 ml-2">
         <div className="w-full h-full rounded-full border-4 border-dashed border-primary/50 flex items-center justify-center bg-card/50 overflow-hidden">
           {uploadedPhoto ? (
             <img src={uploadedPhoto} alt="Your photo" className="w-full h-full object-cover rounded-full" />
@@ -119,10 +119,8 @@ export const FrameTemplate2: React.FC<FrameTemplateProps> = ({
       {designation && <div className="text-primary text-[9px] md:text-xs font-body">{designation}</div>}
     </div>
     
-    {/* Footer */}
-    <div className="text-center py-1.5 md:py-2 flex-shrink-0">
-      <div className="text-[8px] md:text-xs text-muted-foreground font-body">Kishoreganj Polytechnic Institute</div>
-    </div>
+    {/* Spacer for bottom */}
+    <div className="py-1.5 md:py-2 flex-shrink-0" />
     
     {/* Bottom decorative band */}
     <div className="h-1 bg-gradient-to-r from-primary via-gold to-primary flex-shrink-0" />
